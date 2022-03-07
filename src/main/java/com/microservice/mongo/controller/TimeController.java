@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("time")
 public class TimeController {
 
-    @Autowired
-    private TimeService timeService;
+    private final TimeService timeService;
+
+    public TimeController(TimeService timeService) {
+        this.timeService = timeService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Time>> getAll(){

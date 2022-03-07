@@ -13,8 +13,11 @@ import java.util.List;
 @RequestMapping("jogador")
 public class JogadorController {
 
-    @Autowired
-    private JogadorService jogadorService;
+    private final JogadorService jogadorService;
+
+    public JogadorController(JogadorService jogadorService) {
+        this.jogadorService = jogadorService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Jogador>> getAll(){
