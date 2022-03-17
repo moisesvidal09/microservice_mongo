@@ -10,8 +10,11 @@ import java.util.List;
 @Service
 public class JogadorService {
 
-    @Autowired
-    private JogadorRepository jogadorRepository;
+    private final JogadorRepository jogadorRepository;
+
+    public JogadorService(JogadorRepository jogadorRepository) {
+        this.jogadorRepository = jogadorRepository;
+    }
 
     public Jogador cadastrar(Jogador jogador){
         return jogadorRepository.save(jogador);

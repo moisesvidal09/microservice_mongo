@@ -10,8 +10,11 @@ import java.util.List;
 @Service
 public class TimeService {
 
-    @Autowired
-    private TimeRepository timeRepository;
+    private final TimeRepository timeRepository;
+
+    public TimeService(TimeRepository timeRepository) {
+        this.timeRepository = timeRepository;
+    }
 
     public Time cadastar(Time time){
         return timeRepository.save(time);
